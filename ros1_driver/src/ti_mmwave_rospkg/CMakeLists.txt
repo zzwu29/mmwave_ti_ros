@@ -4,8 +4,8 @@ project(ti_mmwave_rospkg)
 set (CMAKE_CXX_STANDARD 14)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
-## Add support for C++11, supported in ROS Kinetic and newer
- add_definitions(-std=c++11)
+## Add support for C++14, supported in ROS Kinetic and newer
+ add_definitions(-std=c++14)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
