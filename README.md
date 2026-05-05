@@ -15,6 +15,7 @@ The code has been tested on **Ubuntu 20.04 with ROS Noetic**
 
 ## Compile and Run
 ```shell
+cd $MMWAVE_WS/src
 catkin build
 ```
 
