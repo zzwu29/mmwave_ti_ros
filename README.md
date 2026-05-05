@@ -1,5 +1,7 @@
 # TI mmwave ros driver
 
+The code has been tested on **Ubuntu 20.04 with ROS Noetic**
+
 ## Manual
 [IWR6843AOP](https://www.ti.com/lit/ug/swru546e/swru546e.pdf)
 
