@@ -1,4 +1,5 @@
 <launch>
+  <remap from="/zero/ti_mmwave/radar_scan_pcl" to="/radar/cloud"/>
   <!-- Input arguments -->
   <arg name="mav_name" default="zero"/>
   <arg name="log_output" default="screen"/>
@@ -38,7 +39,7 @@
     <group if="$(eval radar_type == '6843AOP')">
       <!-- 1. mmWaveQuickConfig node (terminates after configuring mmWave sensor) -->
       <node pkg="ti_mmwave_rospkg" type="mmWaveQuickConfig" name="mmWaveQuickConfig"
-            args="$(find ti_mmwave_rospkg)/cfg/6843AOP/6843AOP_shortRange_30fps.cfg" output="$(arg log_output)"/>
+            args="$(find ti_mmwave_rospkg)/cfg/6843AOP/6843AOP_shortRange_10fps.cfg" output="$(arg log_output)"/>
 
       <!-- 2. the actual radar node -->
       <node pkg="ti_mmwave_rospkg" type="ti_mmwave_rospkg" name="ti_mmwave" output="$(arg log_output)">
