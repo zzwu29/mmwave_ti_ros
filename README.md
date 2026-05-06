@@ -11,6 +11,9 @@ The code has been tested on **Ubuntu 20.04 with ROS Noetic**
 ![](misc/sop_config.jpg)
 ![](misc/definition.jpg)
 
+The .bin files could be found [here](./ti_mmwave_rospkg/bin/). We have tested on 
+**xwr64xxAOP_mmw_demo.bin**
+
 [Visualization Tool](https://dev.ti.com/gallery/view/mmwave/mmWave_Demo_Visualizer/ver/3.6.0/)
 
 ## Compile and Run
