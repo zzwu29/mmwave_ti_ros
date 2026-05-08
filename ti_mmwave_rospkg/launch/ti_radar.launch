@@ -7,7 +7,7 @@
   <arg name="radar_frame_id" default="ti_mmwave"/>
 
   <!-- visualization-->
-  <arg name="visualize" value="True"/>
+  <arg name="visualize" value="False"/>
 
   <!-- record bag -->
   <arg name="record_bag" default="False"/>
