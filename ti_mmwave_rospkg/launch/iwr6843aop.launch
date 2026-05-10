@@ -2,8 +2,10 @@
   <!-- Input arguments launch-prefix="bash -c 'sleep 1.0; $0 $@' " -->
   <arg name="max_allowed_elevation_angle_deg" default="90" doc="Maximum allowed elevation angle in degrees for detected object data [0 > value >= 90]}"/>
   <arg name="max_allowed_azimuth_angle_deg" default="90" doc="Maximum allowed azimuth angle in degrees for detected object data [0 > value >= 90]}"/>
-  <arg name="config_dir" default="$(find robot_bringup)/config/ros1" doc="Path to the config directory"/>
-  <arg name="config_file" default="radar_4mps.cfg"/>
+  <arg name="config_dir" default="$(find ti_mmwave_rospkg)/cfg/6843AOP" doc="Path to the config directory"/>
+  <!-- <arg name="config_file" default="6843AOP_custom.cfg"/> -->
+  <arg name="config_file" default="paper.cfg"/>
+  <!-- <arg name="config_file" default="radar_4mps.cfg"/> -->
 
   <arg name="namespace" default="radar" />
   <arg name="command_port" default="/dev/ttyUSB0" />
@@ -24,15 +26,16 @@
     <param name="frame_id" value="$(arg frame_id)"/>
     <param name="mmWaveCLI_name" value="$(arg mmWaveCLI)" />
     <param name="approx_delay_ms" value="50" />
-    <remap from="/ti_mmwave/radar_scan" to="scan"/>
-    <remap from="/ti_mmwave/radar_scan_markers" to="markers"/>
-    <remap from="/ti_mmwave/radar_scan_pcl" to="cloud"/>
-    <remap from="/ti_mmwave/ros_time_now" to="ros_time_now"/>
-    <remap from="/ti_mmwave/trigger" to="/vectornav_driver_node/sync_out_stamp"/>
+    <remap from="/$(arg namespace)/ti_mmwave/radar_scan" to="scan"/>
+    <remap from="/$(arg namespace)/ti_mmwave/radar_scan_markers" to="markers"/>
+    <remap from="/$(arg namespace)/ti_mmwave/radar_scan_pcl" to="cloud"/>
+    <remap from="/$(arg namespace)/ti_mmwave/ros_time_now" to="ros_time_now"/>
+    <remap from="/$(arg namespace)/ti_mmwave/trigger" to="/vectornav_driver_node/sync_out_stamp"/>
   </node>
 
   <!-- mmWaveQuickConfig node (terminates after configuring mmWave sensor) -->
   <node pkg="ti_mmwave_rospkg" type="mmWaveQuickConfig" name="ti_mmwave_config" ns="$(arg namespace)" args="$(arg config_dir)/$(arg config_file)" >
     <param name="mmWaveCLI_name" value="$(arg mmWaveCLI)" />
   </node>
+
 </launch>
